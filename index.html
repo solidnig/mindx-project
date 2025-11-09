@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindX-Social Layout - Icon & Text Dọc</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./font-awesome-6.5.1-pro-full/css/all.css" />
+  </head>
+  <body>
+    <!-- Header (giữ nguyên) -->
+    <header class="header">
+      <div class="header-left">
+        <a href="#" class="logo">MindX-Social</a>
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Tìm kiếm trên MindX-Social"
+        />
+      </div>
+      <div class="header-right">
+        <a href="#">Trang chủ</a>
+        <a href="#">Watch</a>
+        <button>Tạo bài viết</button>
+        <div class="profile-pic"></div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+      <!-- Sidebar Left - Cập nhật HTML: Thêm .icon và .text cho mỗi item -->
+      <aside class="sidebar-left">
+        <h3>Menu</h3>
+        <ul>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-circle-user"></i>
+              <!-- Icon mẫu (emoji hoặc thay bằng SVG/img) -->
+              <span class="text">Trang cá nhân</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-user-group"></i>
+              <span class="text">Bạn bè.</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-users"></i>
+              <span class="text">Nhóm</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon">📺</div>
+              <span class="text">Watch</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon">🛒</div>
+              <span class="text">Marketplace</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon">📖</div>
+              <span class="text">Nhật ký</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon">💾</div>
+              <span class="text">Đã lưu</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Content Area (giữ nguyên) -->
+      <main class="content">
+        <h2>Khu vực feed chính</h2>
+
+        <!-- Sample Post -->
+        <article class="post">
+          <div class="post-header">
+            <div class="post-avatar"></div>
+            <div class="post-info">
+              <h4>Nguyễn Văn A</h4>
+              <p>2 giờ trước · Hôm nay</p>
+            </div>
+          </div>
+          <div class="post-content">
+            <p class="post-text">
+              Chào mọi người! Hôm nay mình đi du lịch Đà Nẵng, thời tiết đẹp
+              quá! Ai có tip ăn chơi gì hay ho không? 😊
+            </p>
+            <div class="post-image">Ảnh minh họa (thay bằng URL ảnh thật)</div>
+          </div>
+          <div class="post-actions">
+            <button class="post-action">❤️ Thích (12)</button>
+            <button class="post-action">💬 Bình luận (5)</button>
+            <button class="post-action">📤 Chia sẻ</button>
+          </div>
+
+          <!-- Comments Section -->
+          <div class="comments">
+            <div class="comment">
+              <div class="comment-avatar"></div>
+              <div class="comment-content">
+                <div class="comment-author">Trần Thị B</div>
+                <p class="comment-text">
+                  Ồ đẹp quá anh ơi! Mình recommend quán bún chả cá Bà Bé nhé,
+                  ngon lắm!
+                </p>
+                <div class="comment-actions">Thích · Trả lời · 1 giờ trước</div>
+              </div>
+            </div>
+            <div class="comment">
+              <div class="comment-avatar"></div>
+              <div class="comment-content">
+                <div class="comment-author">Lê Văn C</div>
+                <p class="comment-text">
+                  Hay ho! Lần sau đi cùng nhé, mình biết chỗ ngắm hoàng hôn siêu
+                  chill.
+                </p>
+                <div class="comment-actions">
+                  Thích · Trả lời · 30 phút trước
+                </div>
+              </div>
+            </div>
+            <div class="comment-form">
+              <input
+                type="text"
+                class="comment-input"
+                placeholder="Viết bình luận..."
+              />
+              <button class="comment-btn">Đăng</button>
+            </div>
+          </div>
+        </article>
+
+        <p>(Thêm bài viết khác ở đây nếu cần)</p>
+      </main>
+
+      <!-- Sidebar Right -->
+      <aside class="sidebar-right">
+        <h3>Bạn bè gợi ý</h3>
+        <ul>
+          <li><a href="#">Bạn 1</a></li>
+          <li><a href="#">Bạn 2</a></li>
+          <li><a href="#">Bạn 3</a></li>
+        </ul>
+        <h3>Quảng cáo</h3>
+        <ul>
+          <li><a href="#">Sản phẩm A</a></li>
+          <li><a href="#">Dịch vụ B</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- Footer - Updated -->
+    <footer class="footer">
+      <p>&copy; 2025 MindX-Social. Tất cả quyền được bảo lưu.</p>
+      <a href="#">Giới thiệu</a>
+      <a href="#">Tin tức</a>
+      <a href="#">Nhân viên</a>
+      <a href="#">Quảng cáo</a>
+      <a href="#">Kinh doanh</a>
+      <a href="#">Điều khoản</a>
+    </footer>
+  </body>
+</html>

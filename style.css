@@ -1,0 +1,347 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: #1c1e21;
+}
+
+/* Header (giữ nguyên) */
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddfe2;
+  padding: 8px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1877f2;
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+.search-bar {
+  width: 250px;
+  padding: 8px 12px;
+  border: 1px solid #ccd0d5;
+  border-radius: 20px;
+  background-color: #f0f2f5;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-right a,
+.header-right button {
+  text-decoration: none;
+  color: #1c1e21;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e4e6ea;
+}
+
+/* Main Container (giữ nguyên) */
+.main-container {
+  max-width: 1420px;
+  margin: 0;
+  display: flex;
+  min-height: calc(100vh - 100px);
+}
+
+/* Sidebar Left - Cập nhật: Icon trên, chữ dưới */
+.sidebar-left {
+  width: 280px;
+  padding: 16px 16px 16px 8px;
+  background-color: #f0f2f5;
+}
+
+.sidebar-left h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: #1c1e21;
+}
+
+.sidebar-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-left li {
+  margin-bottom: 16px; /* Khoảng cách giữa các item */
+}
+
+.sidebar-left a {
+  text-decoration: none;
+  color: #1c1e21;
+  display: flex;
+  flex-direction: column; /* Xếp dọc: icon trên, text dưới */
+  align-items: flex-start; /* Căn trái */
+  padding: 8px 0; /* Padding cho toàn item */
+  transition: background-color 0.2s; /* Hover mượt */
+}
+
+.sidebar-left a:hover {
+  background-color: #e4e6ea; /* Nền xám khi hover như FB */
+  border-radius: 8px;
+  padding: 8px 8px; /* Padding rộng hơn khi hover */
+}
+
+/* Icon: Hàng trên */
+.sidebar-left .icon {
+  width: 24px; /* Kích thước icon cố định như FB */
+  height: 24px;
+  background-color: #1877f2; /* Màu xanh FB */
+  border-radius: 4px; /* Bo góc nhẹ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px; /* Nếu dùng chữ/emoji làm icon */
+  margin-bottom: 4px; /* Khoảng cách giữa icon và chữ (4px) */
+  font-weight: bold;
+}
+
+/* Text: Hàng dưới */
+.sidebar-left .text {
+  font-size: 16px;
+  font-weight: 500; /* Đậm nhẹ như FB */
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  padding: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.content h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+/* Sample Post Styles */
+.post {
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #dddfe2;
+}
+
+.post-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e4e6ea;
+  margin-right: 12px;
+}
+
+.post-info h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.post-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #65676b;
+}
+
+.post-content {
+  padding: 0 16px 12px;
+}
+
+.post-text {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.post-image {
+  width: 100%;
+  height: 400px;
+  background-color: #dddfe2;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #65676b;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #dddfe2;
+  padding: 8px 0;
+}
+
+.post-action {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #65676b;
+}
+
+.post-action:hover {
+  background-color: #f0f2f5;
+  border-radius: 8px;
+}
+
+/* Comments Section */
+.comments {
+  border-top: 1px solid #dddfe2;
+  padding: 12px 16px;
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.comment:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e4e6ea;
+  margin-right: 8px;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-author {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.comment-text {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+}
+
+.comment-actions {
+  font-size: 12px;
+  color: #65676b;
+}
+
+.comment-form {
+  display: flex;
+  padding-top: 12px;
+  border-top: 1px solid #f0f2f5;
+}
+
+.comment-input {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  border-radius: 20px;
+  background-color: #f0f2f5;
+  margin-right: 8px;
+}
+
+.comment-btn {
+  background: none;
+  border: none;
+  color: #1877f2;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Sidebar Right */
+.sidebar-right {
+  width: 280px;
+  padding: 16px;
+}
+
+.sidebar-right h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.sidebar-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-right li {
+  margin-bottom: 12px;
+}
+
+.sidebar-right a {
+  text-decoration: none;
+  color: #1c1e21;
+  font-size: 14px;
+}
+
+/* Footer - Updated */
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #dddfe2;
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+  color: #65676b;
+}
+
+.footer a {
+  color: #65676b;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar-left,
+  .sidebar-right {
+    display: none;
+  }
+  .main-container {
+    flex-direction: column;
+  }
+}
