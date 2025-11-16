@@ -6,7 +6,7 @@ body {
   color: #1c1e21;
 }
 
-/* Header (giữ nguyên) */
+/* Header */
 .header {
   background-color: #ffffff;
   border-bottom: 1px solid #dddfe2;
@@ -54,6 +54,25 @@ body {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.header-right a:hover,
+.header-right button:hover {
+  background-color: #f0f2f5;
+}
+
+/* Button Đăng nhập đặc biệt: Nền xanh */
+.login-btn {
+  background-color: #1877f2;
+  color: white !important;
+  font-weight: 600;
+}
+
+.login-btn:hover {
+  background-color: #166fe5;
 }
 
 .profile-pic {
@@ -63,7 +82,7 @@ body {
   background-color: #e4e6ea;
 }
 
-/* Main Container (giữ nguyên) */
+/* Main Container */
 .main-container {
   max-width: 1420px;
   margin: 0;
@@ -71,7 +90,7 @@ body {
   min-height: calc(100vh - 100px);
 }
 
-/* Sidebar Left - Cập nhật: Icon trên, chữ dưới */
+/* Sidebar Left - Icon trên, chữ dưới */
 .sidebar-left {
   width: 280px;
   padding: 16px 16px 16px 8px;
@@ -92,47 +111,45 @@ body {
 }
 
 .sidebar-left li {
-  margin-bottom: 16px; /* Khoảng cách giữa các item */
+  margin-bottom: 16px;
 }
 
 .sidebar-left a {
   text-decoration: none;
   color: #1c1e21;
   display: flex;
-  flex-direction: column; /* Xếp dọc: icon trên, text dưới */
-  align-items: flex-start; /* Căn trái */
-  padding: 8px 0; /* Padding cho toàn item */
-  transition: background-color 0.2s; /* Hover mượt */
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 0;
+  transition: background-color 0.2s;
 }
 
 .sidebar-left a:hover {
-  background-color: #e4e6ea; /* Nền xám khi hover như FB */
+  background-color: #e4e6ea;
   border-radius: 8px;
-  padding: 8px 8px; /* Padding rộng hơn khi hover */
+  padding: 8px 8px;
 }
 
-/* Icon: Hàng trên */
 .sidebar-left .icon {
-  width: 24px; /* Kích thước icon cố định như FB */
+  width: 24px;
   height: 24px;
-  background-color: #1877f2; /* Màu xanh FB */
-  border-radius: 4px; /* Bo góc nhẹ */
+  background-color: #1877f2;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 12px; /* Nếu dùng chữ/emoji làm icon */
-  margin-bottom: 4px; /* Khoảng cách giữa icon và chữ (4px) */
+  font-size: 12px;
+  margin-bottom: 4px;
   font-weight: bold;
 }
 
-/* Text: Hàng dưới */
 .sidebar-left .text {
   font-size: 16px;
-  font-weight: 500; /* Đậm nhẹ như FB */
+  font-weight: 500;
 }
 
-/* Content Area */
+/* Content Area (Với bài viết mẫu) */
 .content {
   flex: 1;
   padding: 16px;
@@ -145,7 +162,7 @@ body {
   font-size: 20px;
 }
 
-/* Sample Post Styles */
+/* Sample Post Styles (giữ nguyên) */
 .post {
   background-color: #ffffff;
   border-radius: 8px;
@@ -225,7 +242,7 @@ body {
   border-radius: 8px;
 }
 
-/* Comments Section */
+/* Comments Section (giữ nguyên) */
 .comments {
   border-top: 1px solid #dddfe2;
   padding: 12px 16px;
@@ -293,7 +310,7 @@ body {
   cursor: pointer;
 }
 
-/* Sidebar Right */
+/* Sidebar Right (giữ nguyên) */
 .sidebar-right {
   width: 280px;
   padding: 16px;
@@ -319,7 +336,7 @@ body {
   font-size: 14px;
 }
 
-/* Footer - Updated */
+/* Footer (giữ nguyên) */
 .footer {
   background-color: #ffffff;
   border-top: 1px solid #dddfe2;

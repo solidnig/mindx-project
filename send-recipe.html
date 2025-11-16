@@ -84,45 +84,64 @@
       <nav>
         <a href="#">Đồ ăn</a>
         <a href="#">Đồ uống</a>
-        <a href="send-recipe.html">Gửi công thức</a>
+        <a href="#">Gửi công thức</a>
         <a href="#">Đăng nhập</a>
       </nav>
     </header>
 
-    <div class="container">
-      <h1>Các công thức phổ biến</h1>
-      <div class="grid">
-        <div class="card">
-          <img src="https://picsum.photos/400/250?food1" alt="Món ăn" />
-          <div class="card-body">
-            <h3>Phở Bò</h3>
-            <p>
-              Món ăn truyền thống Việt Nam với nước dùng đậm đà và bánh phở mềm.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?drink1" alt="Đồ uống" />
-          <div class="card-body">
-            <h3>Trà Chanh</h3>
-            <p>Đồ uống giải khát đơn giản, dễ làm và cực kỳ sảng khoái.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?food2" alt="Món ăn" />
-          <div class="card-body">
-            <h3>Bánh Mì Kẹp</h3>
-            <p>Món ăn nhanh gọn nhưng đầy đủ hương vị và dinh dưỡng.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/250?drink2" alt="Đồ uống" />
-          <div class="card-body">
-            <h3>Sinh Tố Dâu</h3>
-            <p>Thức uống bổ dưỡng, thơm ngon với dâu tươi xay mịn.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <section class="container" id="submit-recipe">
+      <h1>Gửi công thức</h1>
+      <form>
+        <label>Hình ảnh minh hoạ:</label><br />
+        <input type="file" accept="image/*" /><br /><br />
+
+        <label>Tên món ăn:</label><br />
+        <input
+          type="text"
+          placeholder="Nhập tên món"
+          style="width: 100%; padding: 8px; margin: 5px 0"
+        /><br />
+
+        <label>Giới thiệu món ăn:</label><br />
+        <textarea
+          placeholder="Giới thiệu ngắn về món ăn"
+          style="width: 100%; height: 80px; padding: 8px; margin: 5px 0"
+        ></textarea
+        ><br />
+
+        <label>Công thức chi tiết:</label><br />
+        <textarea
+          placeholder="Nhập đầy đủ công thức"
+          style="width: 100%; height: 150px; padding: 8px; margin: 5px 0"
+        ></textarea
+        ><br />
+
+        <button
+          type="submit"
+          style="
+            background: #e67e22;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+          "
+        >
+          Gửi
+        </button>
+      </form>
+    </section>
+    <footer
+      style="
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+      "
+    >
+      © 2025 How to Cook — Chia sẻ công thức nấu ăn & đồ uống.
+    </footer>
   </body>
 </html>
