@@ -2,146 +2,130 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>How to Cook</title>
+    <title>Thêm công thức</title>
     <style>
       body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #fafafa;
+        font-family: Arial;
+        padding: 20px;
       }
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #ffffff;
-        padding: 15px 30px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-      }
-      .logo {
-        font-size: 24px;
-        font-weight: bold;
-        color: #e67e22;
-      }
-      nav a {
-        margin-left: 25px;
-        text-decoration: none;
-        color: #333;
-        font-size: 16px;
-        transition: 0.2s;
-      }
-      nav a:hover {
-        color: #e67e22;
-      }
-      .container {
-        max-width: 1100px;
-        margin: auto;
-        padding: 40px 20px;
-      }
-      h1 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #333;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-      }
-      .card {
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        transition: transform 0.2s;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-      }
-      .card img {
+      input,
+      textarea {
         width: 100%;
-        height: 180px;
-        object-fit: cover;
+        padding: 8px;
+        margin: 5px 0;
       }
-      .card-body {
-        padding: 15px;
+      .row {
+        margin-bottom: 10px;
       }
-      .card-body h3 {
-        margin: 0 0 10px;
-        color: #e67e22;
+      button {
+        padding: 10px 16px;
+        background: #e67e22;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
       }
-      .card-body p {
-        color: #555;
-        font-size: 14px;
+      .sub-btn {
+        background: #3498db;
+        margin-left: 5px;
+        display: block;
+        margin-top: 10px;
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="logo">How to Cook</div>
-      <nav>
-        <a href="#">Đồ ăn</a>
-        <a href="#">Đồ uống</a>
-        <a href="#">Gửi công thức</a>
-        <a href="#">Đăng nhập</a>
-      </nav>
-    </header>
+    <h1>Thêm công thức</h1>
 
-    <section class="container" id="submit-recipe">
-      <h1>Gửi công thức</h1>
-      <form>
-        <label>Hình ảnh minh hoạ:</label><br />
-        <input type="file" accept="image/*" /><br /><br />
+    <h2>Tên món:</h2>
+    <input id="ten" />
 
-        <label>Tên món ăn:</label><br />
-        <input
-          type="text"
-          placeholder="Nhập tên món"
-          style="width: 100%; padding: 8px; margin: 5px 0"
-        /><br />
+    <h2>Ghi chú:</h2>
+    <input id="ghi_chu" />
 
-        <label>Giới thiệu món ăn:</label><br />
-        <textarea
-          placeholder="Giới thiệu ngắn về món ăn"
-          style="width: 100%; height: 80px; padding: 8px; margin: 5px 0"
-        ></textarea
-        ><br />
+    <!-- NGUYÊN LIỆU -->
+    <h2>Nguyên liệu</h2>
+    <div id="nguyenLieuList"></div>
+    <button class="sub-btn" onclick="addIngredient()">
+      + Thêm nguyên liệu
+    </button>
 
-        <label>Công thức chi tiết:</label><br />
-        <textarea
-          placeholder="Nhập đầy đủ công thức"
-          style="width: 100%; height: 150px; padding: 8px; margin: 5px 0"
-        ></textarea
-        ><br />
+    <!-- CÁCH LÀM -->
+    <h2>Các bước làm</h2>
+    <div id="cachLamList"></div>
+    <button class="sub-btn" onclick="addStep()">+ Thêm bước</button>
 
-        <button
-          type="submit"
-          style="
-            background: #e67e22;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-          "
-        >
-          Gửi
-        </button>
-      </form>
-    </section>
-    <footer
-      style="
-        background: #333;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        margin-top: 40px;
-      "
-    >
-      © 2025 How to Cook — Chia sẻ công thức nấu ăn & đồ uống.
-    </footer>
+    <h2>Mẹo (tip):</h2>
+    <input id="tip" />
+
+    <button onclick="saveRecipe()">Lưu công thức</button>
+
+    <script>
+      // ============ THÊM NGUYÊN LIỆU ============
+      function addIngredient() {
+        const div = document.createElement("div");
+        div.className = "row";
+        div.innerHTML = `<input class="nl" placeholder="Nhập nguyên liệu...">`;
+        document.getElementById("nguyenLieuList").appendChild(div);
+      }
+
+      // ============ THÊM BƯỚC ============
+      function addStep() {
+        const div = document.createElement("div");
+        div.className = "row";
+        div.innerHTML = `
+        <input class="step-title" placeholder="Tiêu đề bước (VD: Bước 1...)">
+        <textarea class="step-desc" placeholder="Mô tả chi tiết của bước"></textarea>
+    `;
+        document.getElementById("cachLamList").appendChild(div);
+      }
+
+      // ============ LƯU CÔNG THỨC ============
+      function saveRecipe() {
+        // LẤY DỮ LIỆU CƠ BẢN
+        const ten = document.getElementById("ten").value;
+        const ghi_chu = document.getElementById("ghi_chu").value;
+        const tip_raw = document.getElementById("tip").value;
+        const tip = tip_raw === "" ? null : tip_raw;
+
+        // LẤY NGUYÊN LIỆU
+        const nguyen_lieu = [...document.querySelectorAll(".nl")]
+          .map((input) => input.value)
+          .filter((x) => x.trim() !== "");
+
+        // LẤY CÁC BƯỚC LÀM
+        const stepTitles = document.querySelectorAll(".step-title");
+        const stepDescs = document.querySelectorAll(".step-desc");
+
+        const cach_lam = [];
+        for (let i = 0; i < stepTitles.length; i++) {
+          if (stepTitles[i].value.trim() !== "") {
+            cach_lam.push({
+              tieu_de: stepTitles[i].value,
+              mo_ta: stepDescs[i].value,
+            });
+          }
+        }
+
+        // TẠO OBJECT CÔNG THỨC
+        const recipe = {
+          ten,
+          ghi_chu,
+          nguyen_lieu,
+          cach_lam,
+          tip,
+        };
+
+        // LẤY LIST TỪ LOCALSTORAGE
+        let list = JSON.parse(localStorage.getItem("recipes")) || [];
+
+        // ĐẨY VÀO MẢNG
+        list.push(recipe);
+
+        // LƯU LẠI
+        localStorage.setItem("recipes", JSON.stringify(list));
+
+        alert("Đã lưu công thức thành công!");
+      }
+    </script>
   </body>
 </html>
