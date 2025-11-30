@@ -76,22 +76,81 @@
         color: #555;
         font-size: 14px;
       }
+      .user-area {
+        position: relative;
+        display: none; /* Ẩn mặc định, sẽ hiện khi đăng nhập */
+        cursor: pointer;
+      }
+
+      #showName {
+        padding: 6px 12px;
+        color: #e67e22;
+        font-weight: bold;
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 28px;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        display: none;
+        min-width: 120px;
+        z-index: 10;
+      }
+
+      .dropdown button {
+        width: 100%;
+        padding: 10px;
+        background: white;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .dropdown button:hover {
+        background: #f2f2f2;
+      }
+
+      /* Hover để hiện menu */
+      .user-area:hover .dropdown {
+        display: block;
+      }
     </style>
   </head>
-  <div>
+  <body>
     <header>
-      <div class="logo">How to Cook</div>
+      <div
+        class="logo"
+        onclick="window.location.href='index.html'"
+        style="cursor: pointer"
+      >
+        How to Cook
+      </div>
+
       <nav>
         <a href="#">Đồ ăn</a>
         <a href="#">Đồ uống</a>
         <a href="send-recipe.html">Gửi công thức</a>
-        <a href="#">Đăng nhập</a>
+
+        <!-- Nút đăng nhập (ẩn khi login thành công) -->
+        <a href="login.html" id="loginBtn">Đăng nhập</a>
+
+        <!-- Username + menu logout -->
+        <div id="userMenu" class="user-area">
+          <span id="showName"></span>
+          <div class="dropdown" id="logoutDropdown">
+            <button onclick="logout()">Đăng xuất</button>
+          </div>
+        </div>
       </nav>
     </header>
 
     <div class="container">
       <h1>Các công thức phổ biến</h1>
-      <div class="grid" id="userRecipes">
+      <div class="grid">
         <div class="card">
           <img src="https://picsum.photos/400/250?food1" alt="Món ăn" />
           <div class="card-body">
@@ -120,58 +179,75 @@
           <img src="https://picsum.photos/400/250?drink2" alt="Đồ uống" />
           <div class="card-body">
             <h3>Sinh Tố Dâu</h3>
-            <p>Thức uống bổ dưỡng, thơm ngon với dâu tươi xay mịn..</p>
+            <p>Thức uống bổ dưỡng, thơm ngon với dâu tươi xay mịn.</p>
           </div>
         </div>
       </div>
+
+      <!-- ⭐ KHU VỰC MỚI — render công thức người dùng thêm ⭐ -->
+      <h1 style="margin-top: 60px">Công thức bạn đã thêm</h1>
+      <div class="grid" id="userRecipes"></div>
     </div>
-  </div>
+
     <script>
-      function saveRecipe() {
-        const recipe = {
-          ten: document.getElementById("ten").value,
-          ghi_chu: document.getElementById("ghi_chu").value,
-          nguyen_lieu: [],
-          cach_lam: [],
-          tip: document.getElementById("tip").value || null,
-        };
+      function renderUserRecipes() {
+        const container = document.getElementById("userRecipes");
+        let list = JSON.parse(localStorage.getItem("recipes")) || [];
 
-        // LẤY LIST HIỆN CÓ
-        let data = JSON.parse(localStorage.getItem("recipes")) || [];
+        container.innerHTML = "";
 
-        // PUSH MỚI
-        data.push(recipe);
+        list.forEach((item, index) => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.style.cursor = "pointer";
+          card.onclick = () => {
+            window.location.href = `detail.html?id=${index}`;
+          };
 
-        // LƯU LẠI
-        localStorage.setItem("recipes", JSON.stringify(data));
-        console.log("Dữ liệu lấy ra:", data);
+          const image =
+            item.image ||
+            `https://picsum.photos/400/250?random=${Math.random()}`;
 
-        alert("Đã lưu công thức!");
-      }
-    </script>
-    <script>
-function renderUserRecipes() {
-  const container = document.getElementById("userRecipes");
-  let list = JSON.parse(localStorage.getItem("recipes")) || [];
-
-  container.innerHTML = "";
-
-  list.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <img src="https://picsum.photos/400/250?random=${Math.random()}" alt="Ảnh món">
+          card.innerHTML = `
+      <img src="${image}" alt="Món ăn">
       <div class="card-body">
         <h3>${item.ten}</h3>
         <p>${item.ghi_chu}</p>
       </div>
     `;
-    container.appendChild(card);
-  });
-}
+          container.appendChild(card);
+        });
+      }
 
-renderUserRecipes();
-</script>
+      renderUserRecipes();
+    </script>
+    <script>
+      // Kiểm tra trạng thái đăng nhập và hiển thị username
+      (function () {
+        const loginBtn = document.getElementById("loginBtn");
+        const userMenu = document.getElementById("userMenu");
+        const nameEl = document.getElementById("showName");
 
+        const user = JSON.parse(localStorage.getItem("currentUser"));
+
+        if (user) {
+          // Ẩn nút đăng nhập
+          if (loginBtn) loginBtn.style.display = "none";
+
+          // Hiện username
+          userMenu.style.display = "inline-block";
+          nameEl.innerText = user.displayName;
+        } else {
+          // Chưa đăng nhập → Ẩn userMenu
+          if (userMenu) userMenu.style.display = "none";
+        }
+      })();
+
+      // Đăng xuất
+      function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.reload();
+      }
+    </script>
   </body>
 </html>
